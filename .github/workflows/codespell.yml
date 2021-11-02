@@ -39,7 +39,7 @@ jobs:
           codespell --config .codespellrc --ignore-words .codespell-ignore $(git ls-files -- "*.py" "*.md")
       - name: codespell-html
         run: |
-          codespell --config .codespellrc --ignore-words .codespell-ignore ./docs/docs/*.html
+          codespell --config .codespellrc --ignore-words .codespell-ignore ./templates/*.html
       - name: git-grep-terms-debug
         run: |
           echo "change when needed for PRs"
