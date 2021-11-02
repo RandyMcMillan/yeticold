@@ -58,9 +58,19 @@ jobs:
         languages: ${{ matrix.language }}
 
     - run: |
+            sudo apt-add-repository ppa:bitcoin/bitcoin
             sudo add-apt-repository ppa:ubuntu-mozilla-security/ppa
-            sudo apt-get update && sudo apt-get install xdg-utils lynx firefox
+            sudo apt-get update && sudo apt-get install xdg-utils lynx firefox bitcoin-qt
             python3 ./initialize.py YetiLevelOne
+            python3 ./initialize.py YetiLevelTwo
+            # YetiLevelThreePrimary
+            # YetiLevelThreeSecondaryCreate
+            # YetiLevelThreeSecondaryRecover
+            # YetiLevelThreeSecondaryLoad
+            # YetiLevelOne
+            # YetiLevelTwo
+            # BitcoinCoreOfflinePrimary
+            # BitcoinCoreOfflineSecondary
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
