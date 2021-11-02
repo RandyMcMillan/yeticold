@@ -42,7 +42,7 @@ The extensive security gain that comes from being both open source and <b>popula
 
 ### Do I need to download the whole blockchain if I already have a node?
 No. If you have a .bitcoin folder that is completely trustworthy you can copy it into the home directory before you begin. However, if you generated the .bitcoin folder on a computer that has malware it is possible that you will be introducing that to your trustworthy laptop, so this is only recommended for advanced users. Once you setup Yeti you will have a trustworthy .bitcoin folder on your internet connected laptop so making a backup on an external
-hard drive is a reasonable thing to do, but you need to be careful to delete any wallet.dat files so this is also only recommened for advanced users. You certainly do not want to use a .bitcoin folder from someone else unless it is only for testing with tiny amounts.
+hard drive is a reasonable thing to do, but you need to be careful to delete any wallet.dat files so this is also only recommended for advanced users. You certainly do not want to use a .bitcoin folder from someone else unless it is only for testing with tiny amounts.
 
 ### Does it make sense to get a faster laptop to speed up the process?
 Probably not as you will only work with Yeti a couple times a year and therefore won't get a ton of use out of faster hardware. However, an SSD drive is about $50 and makes syncing much faster. So if you are a bitcoin enthusiast and you'd like to test and experiment with Bitcoin Core it is worth doing.
