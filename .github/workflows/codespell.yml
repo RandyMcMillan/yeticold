@@ -43,5 +43,6 @@ jobs:
       - name: git-grep-terms-debug
         run: |
           echo "change when needed for PRs"
-          #git grep yeti
+          git grep "git pull"
+          git grep "Yeti Cold is waiting for bitcoin core to shut down"
 

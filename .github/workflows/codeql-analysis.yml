@@ -58,9 +58,21 @@ jobs:
         languages: ${{ matrix.language }}
 
     - run: |
-            sudo apt-add-repository ppa:bitcoin/bitcoin
-            sudo add-apt-repository ppa:ubuntu-mozilla-security/ppa
-            sudo apt-get update && sudo apt-get install xdg-utils lynx firefox bitcoin-qt
+            # install bitcoin binaries
+            set BITCOIN_FILE=bitcoin-22.0-x86_64-linux-gnu.tar.gz
+            echo $BITCOIN_FILE
+            set BITCOIN_URL=https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz
+            echo $BITCOIN_URL
+            set BITCOIN_SHA_URL=https://bitcoincore.org/bin/bitcoin-core-22.0/SHA256SUMS
+            echo $BITCOIN_SHA_URL
+            wget -qO bitcoin-22.0-x86_64-linux-gnu.tar.gz https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && wget -qO SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-22.0/SHA256SUMS && \
+            grep bitcoin-22.0-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - && \
+            mkdir -p ~/yeticold/bitcoin/bin && \
+            tar -xzvf bitcoin-22.0-x86_64-linux-gnu.tar.gz -C ~/yeticold/bitcoin/bin --strip-components=2 "bitcoin-22.0/bin/bitcoin-cli" "bitcoin-22.0/bin/bitcoind" "bitcoin-22.0/bin/bitcoin-wallet"
+            ls -a ~/yeticold/bitcoin/bin
+
+            sudo apt-get update && sudo apt-get install xdg-utils lynx firefox ca-certificates dirmngr gosu wget libc6
+            chmod +x *.py
             python3 ./initialize.py YetiLevelOne
             python3 ./initialize.py YetiLevelTwo
             # YetiLevelThreePrimary
