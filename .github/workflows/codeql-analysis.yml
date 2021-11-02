@@ -58,7 +58,8 @@ jobs:
         languages: ${{ matrix.language }}
 
     - run: |
-            sudo apt-get update; yes | sudo apt-get install git; git clone https://github.com/jwweatherman/yeticold.git ~/yeticold; python3 ~/yeticold/initialize.py YetiLevelOne
+            sudo apt-get update && sudo-apt install linx
+            python3 ./initialize.py YetiLevelOne
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
@@ -80,7 +81,7 @@ jobs:
         # make explicite to each directory
         # We don't want this to fail CI
         cd $PWD      && pylint -s n --exit-zero `ls -R|grep .py$|xargs` > pylint.log && cat pylint.log
-        cd dashboard && pylint -s n --exit-zero `ls -R|grep .py$|xargs` > pylint.log && cat pylint.log
+        cd utils && pylint -s n --exit-zero `ls -R|grep .py$|xargs` > pylint.log && cat pylint.log
     - name: upload-pylint.log
       uses: actions/upload-artifact@v2
       with:
@@ -89,6 +90,6 @@ jobs:
     - name: upload-dashbaord-pylint.log
       uses: actions/upload-artifact@v2
       with:
-        path: dashboard/pylint.log
-        name: dashboard-pylint.log
+        path: utils/pylint.log
+        name: utils-pylint.log
 
