@@ -7,3 +7,4 @@ core
 *.asc
 sigcorrect 
 flask
+bitcoin-*-x86_64-linux-gnu.tar.gz
